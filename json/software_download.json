@@ -1,0 +1,49 @@
+{
+    "title": "Nedladdning Av Programvara",
+    "effective_date": "2024-10-12",
+    "company": "Ditt Företag AB",
+    "website": "https://www.dittforetag.se",
+    "introduction": {
+        "description": "Detta dokument beskriver villkoren för nedladdning av vår programvara."
+    },
+    "information_collected": {
+        "description": "Vi samlar in information som är nödvändig för att tillhandahålla vår programvara.",
+        "types": [
+            "E-postadress",
+            "Användarnamn",
+            "Lösenord"
+        ]
+    },
+    "how_we_use_information": {
+        "description": "Informationen används för att skapa ett användarkonto.",
+        "purposes": [
+            "Kundsupport",
+            "Förbättra tjänsten"
+        ]
+    },
+    "data_protection": {
+        "description": "Vi skyddar din information med säkerhetsåtgärder.",
+        "measures": [
+            "Kryptering",
+            "Brandväggar"
+        ]
+    },
+    "sharing_information": {
+        "description": "Vi delar inte din information med tredje part utan ditt medgivande.",
+        "situations": [
+            "Uppfyllande av lagkrav"
+        ]
+    },
+    "your_rights": {
+        "description": "Du har rätt att begära tillgång till och korrigering av din information.",
+        "rights": [
+            "Rätt till information",
+            "Rätt till radering"
+        ]
+    },
+    "contact_information": {
+        "description": "Kontakta oss för frågor.",
+        "email": "mrfelix880@gmail.com",
+        "address": "Alstavägen 7, 702 21 Örebro"
+    }
+}

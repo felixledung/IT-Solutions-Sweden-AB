@@ -1,0 +1,53 @@
+{
+    "title": "Hantering av AI",
+    "effective_date": "2024-10-12",
+    "company": "Ditt Företagsnamn",
+    "website": "http://www.dittforetagsnamn.se",
+    "introduction": {
+        "description": "Artificiell intelligens (AI) förändrar snabbt hur vi arbetar, lever och interagerar. Med dess ökande inflytande kommer också ansvar för att hantera teknologin på ett etiskt och säkert sätt. Att förstå och implementera effektiva strategier för AI-hantering är avgörande för att maximera fördelarna samtidigt som riskerna minimeras."
+    },
+    "information_collected": {
+        "description": "Informationen som samlas in inkluderar data relaterade till användningen av AI-system och dess interaktioner med användare.",
+        "types": [
+            "Användardata",
+            "Interaktionshistorik",
+            "Prestandadata"
+        ]
+    },
+    "how_we_use_information": {
+        "description": "Informationen används för att förbättra AI-systemens funktionalitet och säkerhet.",
+        "purposes": [
+            "Optimering av algoritmer",
+            "Anpassning av användarupplevelse",
+            "Förbättrad säkerhet"
+        ]
+    },
+    "data_protection": {
+        "description": "Vi vidtar strikta åtgärder för att skydda insamlad data.",
+        "measures": [
+            "Kryptering av data",
+            "Säkerhetsprotokoll",
+            "Regelbunden säkerhetsövervakning"
+        ]
+    },
+    "sharing_information": {
+        "description": "Vi delar inte personligt identifierbar information med tredje parter utan användarens medgivande.",
+        "situations": [
+            "Lagliga krav",
+            "Affärsavtal"
+        ]
+    },
+    "your_rights": {
+        "description": "Användare har rätt att begära åtkomst till sina uppgifter och begära radering.",
+        "rights": [
+            "Rätt till information",
+            "Rätt till radering",
+            "Rätt att invända"
+        ]
+    },
+    "contact_information": {
+        "description": "För frågor angående vår hantering av AI, vänligen kontakta oss.",
+        "email": "info@dittforetagsnamn.se",
+        "address": "Exempelvägen 1, 12345 Staden"
+    }
+}

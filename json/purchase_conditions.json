@@ -1,0 +1,57 @@
+{
+    "title": "Köpvillkor",
+    "effective_date": "2024-10-12",
+    "company": "IT Solutions Sweden AB",
+    "website": "www.felixledung.github.io/IT-Solutions-Sweden-AB",
+    "introduction": {
+        "description": "Dessa köpvillkor gäller för alla köp som görs via vår webbplats. Genom att genomföra ett köp accepterar du våra villkor. Läs noggrant igenom dessa villkor innan du genomför ett köp."
+    },
+    "orders_and_pricing": {
+        "description": "Alla priser på vår webbplats anges i svenska kronor (SEK) inklusive moms. Vi förbehåller oss rätten att ändra priser utan föregående meddelande.",
+        "payment_methods": [
+            "Kreditkort (Visa, Mastercard)",
+            "Swish",
+            "Faktura",
+            "Direktbetalning via bank"
+        ],
+        "order_confirmation": "Efter genomfört köp skickas en orderbekräftelse till din e-postadress. Orderbekräftelsen innehåller detaljer om din beställning."
+    },
+    "delivery_and_shipping": {
+        "description": "Vi strävar efter att leverera digitala produkter omedelbart efter bekräftad betalning. För fysiska produkter sker leverans normalt inom 3-5 arbetsdagar, beroende på lagerstatus.",
+        "delivery_methods": [
+            "Digital nedladdning (mjukvara)",
+            "PostNord för fysiska produkter"
+        ],
+        "shipping_fees": "Fraktkostnad tillkommer för fysiska produkter och varierar beroende på destination."
+    },
+    "cancellations_and_returns": {
+        "description": "Du har rätt att ångra ditt köp inom 14 dagar från mottagandet av din beställning, förutsatt att produkten är oanvänd och i originalskick.",
+        "refunds": {
+            "description": "Återbetalning sker inom 14 dagar efter att vi mottagit din returnerade produkt.",
+            "exceptions": [
+                "Mjukvarulicenser och nedladdningsbara produkter omfattas ej av ångerrätt."
+            ]
+        }
+    },
+    "warranties_and_support": {
+        "description": "Vi erbjuder 1 års garanti på alla fysiska produkter. Garantin täcker fabrikationsfel och gäller från inköpsdatum.",
+        "support_contact": {
+            "email": "support@itsolutions.se",
+            "phone": "+46 123 456 789",
+            "working_hours": "Vardagar 9:00 - 17:00"
+        }
+    },
+    "disputes_and_governing_law": {
+        "description": "Eventuella tvister som uppstår i samband med dessa köpvillkor ska lösas i svensk domstol och följa svensk lagstiftning. Vi rekommenderar att du i första hand kontaktar vår kundservice för att lösa eventuella problem."
+    },
+    "changes_to_terms": {
+        "description": "Vi förbehåller oss rätten att ändra dessa köpvillkor när som helst. Ändringar träder i kraft när de publiceras på vår webbplats, och ditt fortsatta köp innebär att du godkänner de uppdaterade villkoren."
+    },
+    "contact_us": {
+        "description": "Om du har frågor om våra köpvillkor eller om din beställning, vänligen kontakta oss via följande uppgifter.",
+        "email": "mrfelix880@gmail.com",
+        "phone": "+46 123 456 789",
+        "address": "Alstavägen 7, 702 21 Örebro, Sverige",
+        "response_time": "Vi strävar efter att svara på dina förfrågningar inom 3 arbetsdagar."
+    }
+}
