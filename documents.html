@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security System | IT Solutions Sweden AB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="security.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-sidebar">
+            <h2 class="title">Dokument</h2>
+            <hr>
+            <div class="documents" id="fileList">
+                <!-- Dynamiskt genererat innehåll kommer här -->
+            </div>
+        </div>
+
+        <div class="main-frame">
+            <h1 class="title" id="documentTitle">Titel på dokument</h1>
+            <div class="info" id="documentContent">
+                <p>Här kommer ditt dokumentinnehåll att visas.</p>
+            </div>
+        </div>
+
+        <div class="right-sidebar">
+            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-file-export"></i>
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© <span id="year"></span>. Alla rättigheter förbehållna.</p>
+    </footer>
+
+    <!-- Länka JavaScript-filen -->
+    <script src="file_system.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

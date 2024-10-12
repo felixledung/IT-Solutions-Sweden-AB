@@ -169,7 +169,6 @@ footer {
     color: #ffcc00;
 }
 
-
 .footer-bottom {
     text-align: center;
     margin-top: 20px;
@@ -374,7 +373,178 @@ footer {
     text-align: center;
 }
 
+/* Personal */
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.title-card {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #171717;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #222;
+}
+
+.card img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+button:hover,
+.card a:hover {
+    opacity: 0.7;
+}
+
 /* reviews */
+
+.reviews {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.reviews h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1b81e0;
+}
+
+.reviews .review-card {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.reviews .review-card:hover {
+    transform: translateY(-5px);
+}
+
+.reviews .review-card p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+}
+
+.reviews .review-card .reviewer {
+    font-weight: bold;
+}
+
+.review .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.review input[type="text"] {
+    padding: 10px;
+    border-radius: 16px;
+    border: 2px solid #0a84ff;
+    outline: none;
+    width: 512px;
+}
+
+.review textarea {
+    resize: none;
+    width: 512px;
+    border: 2px solid #0a84ff;
+    outline: none;
+    height: 256px;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+.review input[type="button"] {
+    width: 512px;
+    padding: 10px;
+    font-weight: bold;
+    color: #ffff;
+    font-size: 18px;
+    background: #0a84ff;
+    border: none;
+    outline: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: .5s ease;
+}
+
+.review input[type="button"]:hover {
+    scale: 1.02;
+    background: #157feb;
+    color: #f4f4f4f4;
+}
+
+/* employees */
+
+.employees {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.employees h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1b81e0;
+}
+
+.employees .employee-card {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.employees .employee-card:hover {
+    transform: translateY(-5px);
+}
+
+.employees .employee-card img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+}
+
+.employees .employee-card .employee-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.employees .employee-card .employee-role {
+    font-size: 0.9rem;
+    color: #555;
+}
 
 /* download software */
 
@@ -429,143 +599,64 @@ footer {
     background-color: #f4a261;
 }
 
-/* Personal */
+/* error */
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-}
-
-.title-card {
-    color: grey;
-    font-size: 18px;
-}
-
-button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #171717;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.card a {
-    text-decoration: none;
-    font-size: 22px;
-    color: #222;
-}
-
-.card img {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-button:hover,
-a:hover {
-    opacity: 0.7;
-}
-
-/* review */
-
-.review .inputs {
+.error-page {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    height: 80vh;
 }
 
-.review input[type="text"] {
-    padding: 10px;
-    border-radius: 16px;
-    border: 2px solid #0a84ff;
-    outline: none;
-    width: 512px;
+.error-page img {
+    width: 200px;
+    margin-bottom: 20px;
 }
 
-.review textarea {
-    resize: none;
-    width: 512px;
-    border: 2px solid #0a84ff;
-    outline: none;
-    height: 256px;
-    border-radius: 16px;
-    padding: 10px;
-}
-
-.review input[type="button"] {
-    width: 512px;
-    padding: 10px;
-    font-weight: bold;
-    color: #ffff;
-    font-size: 18px;
-    background: #0a84ff;
-    border: none;
-    outline: none;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: .5s ease;
-}
-
-.review input[type="button"]:hover {
-    scale: 1.02;
-    background: #157feb;
-    color: #f4f4f4f4;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-    .services .service-card {
-        width: calc(33.33% - 30px);
-        /* 3 cards in a row */
+/* styles for responsive design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
     }
-}
 
-@media (max-width: 900px) {
-    .services .service-card {
-        width: calc(50% - 30px);
-        /* 2 cards in a row */
-    }
-}
-
-@media (max-width: 600px) {
-    .services .service-card {
-        width: 100%;
-        /* 1 card in a row */
+    .header .navbar {
+        margin-top: 10px;
     }
 
     .header .navbar ul {
         flex-direction: column;
-        /* Stack menu items vertically on smaller screens */
-        position: absolute;
-        top: 60px;
-        /* Adjust position below header */
-        left: 0;
-        right: 0;
-        background: #fff;
-        /* Background for menu */
-        display: none;
-        /* Hide menu by default */
-        transition: max-height 0.3s ease;
-        /* Smooth transition */
+        align-items: flex-start;
     }
 
-    .header .navbar.active ul {
-        display: flex;
-        /* Show menu when active */
+    .header .navbar ul li {
+        margin: 10px 0;
     }
 
-    .welcome {
+    .welcome .main-content {
+        margin-right: 0;
+    }
+
+    .welcome .buttons {
         flex-direction: column;
-        /* Stack elements vertically on small screens */
+    }
+
+    .services .service-card {
+        width: 100%;
+    }
+
+    .reviews .review-card {
+        width: 100%;
+    }
+
+    .employees .employee-card {
+        width: 100%;
+    }
+
+    .review input[type="text"],
+    .review textarea,
+    .review input[type="button"] {
+        width: 100%;
     }
 }

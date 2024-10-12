@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Tooltip functionality for social media links
     document.querySelectorAll(".socials li a").forEach((link, i, links) => {
         const tooltipText = link.getAttribute("title") || link.querySelector('i').className.split(' ').pop().replace('fa-', '').replace('-', '');
-        const position = i === 0 ? 'left' : (i === links.length - 1 ? 'right' : 'bottom');
+        const position = (i === 0) ? 'left' : (i === links.length - 1) ? 'right' : 'bottom';
 
         const tooltipSpan = document.createElement('span');
         tooltipSpan.className = `tooltiptext ${position}`;
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         link.parentElement.appendChild(tooltipSpan);
     });
 
+    // Fetching words for typing effect
     fetch('json/typing_words.json')
         .then(response => {
             if (!response.ok) {
@@ -27,27 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const typeEffect = () => {
                 const currentWord = words[wordIndex];
-                const currentChar = currentWord.substring(0, charIndex);
-                dynamicText.textContent = currentChar;
+                dynamicText.textContent = currentWord.substring(0, charIndex);
                 dynamicText.classList.add("stop-blinking");
 
-                if (!isDeleting && charIndex < currentWord.length) {
+                if (!isDeleting) {
                     charIndex++;
-                    setTimeout(typeEffect, 200);
-                } else if (isDeleting && charIndex > 0) {
-                    charIndex--;
-                    setTimeout(typeEffect, 100);
+                    if (charIndex > currentWord.length) {
+                        isDeleting = true;
+                    }
                 } else {
-                    isDeleting = !isDeleting;
-                    dynamicText.classList.remove("stop-blinking");
-                    wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
-                    setTimeout(typeEffect, 1200);
+                    charIndex--;
+                    if (charIndex <= 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
                 }
-            }
+
+                setTimeout(typeEffect, isDeleting ? 100 : 200);
+                if (charIndex === 0 && !isDeleting) {
+                    setTimeout(() => dynamicText.classList.remove("stop-blinking"), 1200);
+                }
+            };
 
             typeEffect();
         })
         .catch(error => console.error('Error fetching words:', error));
-});
 
-document.getElementById("current-year").textContent = new Date().getFullYear();
+    // Set the current year in the copyright
+    document.getElementById("year").textContent = new Date().getFullYear();
+});

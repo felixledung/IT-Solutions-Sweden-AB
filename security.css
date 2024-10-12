@@ -1,0 +1,162 @@
+/* Grundläggande stil för alla element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Grundläggande stil för body */
+body {
+    background-color: #191e24;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #797f8a;
+}
+
+/* Huvudbehållare för layout */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 80px);
+}
+
+/* Vänster sidofält */
+.left-sidebar {
+    width: 275px;
+    background: #15191e;
+    margin: 20px;
+    border-radius: 16px;
+}
+
+.left-sidebar .title {
+    color: #23c15b;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.left-sidebar hr {
+    background: #797f8a;
+    height: 5px;
+    border: none;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.documents {
+    margin: 15px;
+}
+
+.documents p,
+.documents i {
+    margin: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.documents p:hover {
+    padding: 10px;
+    background: #117a36;
+    border-radius: 16px;
+}
+
+.documents .fa-file {
+    color: #147ffc;
+}
+
+.documents .fa-file-word {
+    color: #185abd;
+}
+
+.documents .fa-file-pdf {
+    color: #e20001;
+}
+
+/* Huvudram för dokumentinnehåll */
+.main-frame {
+    background: #15191e;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.main-frame .title {
+    color: #23c15b;
+}
+
+/* Höger sidofält */
+.right-sidebar {
+    background: #15191e;
+    width: 80px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.right-sidebar i {
+    color: #23c15b;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.right-sidebar i:hover {
+    color: #117a36;
+}
+
+/* Fotstil */
+.footer {
+    background: #15191e;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Stil för dokumentinnehåll */
+#documentContent {
+    text-align: left;
+    color: #f1f1f1;
+    /* Justera textfärgen för läsbarhet */
+}
+
+h1 {
+    font-size: 24px;
+    color: #23c15b;
+    /* Titelns färg */
+}
+
+h2,
+h3 {
+    color: #23c15b;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+    color: #f1f1f1;
+    /* Listfärg */
+}

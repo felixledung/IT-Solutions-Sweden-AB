@@ -1,0 +1,54 @@
+{
+    "title": "Användarvillkor",
+    "effective_date": "2024-10-12",
+    "company": "IT Solutions Sweden AB",
+    "website": "www.felixledung.github.io/IT-Solutions-Sweden-AB",
+    "introduction": {
+        "description": "Välkommen till våra användarvillkor. Genom att använda vår webbplats godkänner du dessa villkor. Läs dem noggrant innan du börjar använda våra tjänster, eftersom de innehåller viktig information om dina rättigheter och skyldigheter."
+    },
+    "services": {
+        "description": "Vi tillhandahåller IT-lösningar för företag, inklusive mjukvaruutveckling, IT-konsultationer, och digitala lösningar. Våra tjänster syftar till att förbättra effektiviteten och produktiviteten för företag genom skräddarsydda tekniska lösningar.",
+        "availability": "Våra tjänster kan vara tillgängliga både online och på plats. Vi förbehåller oss rätten att ändra eller avsluta tjänster utan föregående meddelande."
+    },
+    "website_usage": {
+        "description": "Genom att använda vår webbplats accepterar du att följa alla tillämpliga lagar och att inte använda den för olagliga ändamål. Du får inte heller vidta några åtgärder som kan skada eller störa webbplatsens funktion.",
+        "prohibitions": [
+            "Använda webbplatsen för olagliga ändamål, såsom bedrägeri eller penningtvätt.",
+            "Sända skräppost, virus, eller andra skadliga koder.",
+            "Bryta mot immateriella rättigheter, inklusive upphovsrätt, varumärken och patenträtt.",
+            "Åtkomst till eller försök att komma åt våra servrar eller databaser utan behörighet.",
+            "Kopiera, distribuera eller modifiera innehåll på webbplatsen utan uttryckligt tillstånd."
+        ]
+    },
+    "user_generated_content": {
+        "description": "Du är ansvarig för allt innehåll du skapar och delar på vår webbplats, inklusive kommentarer, uppladdade filer och andra bidrag.",
+        "responsibility": "Vi förbehåller oss rätten att granska, redigera eller ta bort innehåll som vi anser vara olämpligt, stötande eller som bryter mot dessa villkor. Vi ansvarar inte för innehåll som skapas av användare."
+    },
+    "disclaimer": {
+        "description": "Vi ansvarar inte för några direkta eller indirekta skador som kan uppstå vid användning av vår webbplats, inklusive men inte begränsat till förlust av data, intäkter eller andra immateriella skador.",
+        "efforts": "Vi strävar efter att hålla all information på webbplatsen korrekt och uppdaterad, men vi kan inte garantera att informationen alltid är fullständig, aktuell eller fri från fel."
+    },
+    "third_party_links": {
+        "description": "Vår webbplats kan innehålla länkar till tredje parts webbplatser för din bekvämlighet. Vi ansvarar inte för innehåll, sekretesspolicyer eller praxis på dessa tredje parts webbplatser, och du uppmanas att läsa deras villkor innan du använder deras tjänster.",
+        "advice": "Eventuella interaktioner med tredjepartsleverantörer sker på egen risk."
+    },
+    "privacy_policy": {
+        "description": "Din integritet är viktig för oss. För information om hur vi samlar in, använder och skyddar din personliga information, vänligen läs vår integritetspolicy som finns tillgänglig på vår webbplats."
+    },
+    "changes_to_terms": {
+        "description": "Vi kan ändra dessa villkor när som helst. Ändringar träder i kraft när de publiceras på denna sida, och din fortsatta användning av webbplatsen efter sådana ändringar innebär att du accepterar de uppdaterade villkoren. Vi rekommenderar att du regelbundet granskar dessa villkor."
+    },
+    "governing_law": {
+        "description": "Dessa villkor regleras av svensk lag och eventuella tvister ska lösas i svensk domstol. Om någon del av dessa villkor anses vara ogiltig, ska övriga villkor fortsätta att gälla fullt ut."
+    },
+    "limitation_of_liability": {
+        "description": "Vår totala ansvarsskyldighet gentemot dig för alla anspråk som uppstår på grund av användningen av vår webbplats eller våra tjänster är begränsad till det belopp som du har betalat för våra tjänster, om tillämpligt."
+    },
+    "contact_us": {
+        "description": "Om du har frågor angående dessa villkor eller hur vi hanterar din information, vänligen kontakta oss via följande uppgifter.",
+        "email": "mrfelix880@gmail.com",
+        "phone": "+46 123 456 789",
+        "address": "Alstavägen 7, 702 21 Örebro, Sverige",
+        "response_time": "Vi strävar efter att svara på dina förfrågningar inom 3 arbetsdagar."
+    }
+}

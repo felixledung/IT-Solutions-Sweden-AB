@@ -1,0 +1,52 @@
+{
+    "title": "Sekretesspolicy",
+    "effective_date": "2024-10-12",
+    "company": "IT Solutions Sweden AB",
+    "information_collected": {
+        "description": "Vi samlar in följande information från användare.",
+        "types": [
+            "Personlig information",
+            "Webbläsardata",
+            "Cookies"
+        ]
+    },
+    "how_we_use_information": {
+        "description": "Vi använder din information för följande ändamål.",
+        "purposes": [
+            "För att tillhandahålla våra tjänster.",
+            "För att förbättra vår webbplats.",
+            "För marknadsföringsändamål."
+        ]
+    },
+    "data_protection": {
+        "description": "Vi vidtar åtgärder för att skydda din information.",
+        "measures": [
+            "Kryptering av data.",
+            "Begränsad åtkomst till information.",
+            "Regelbundna säkerhetsgranskningar."
+        ]
+    },
+    "sharing_information": {
+        "description": "Vi delar inte din information utan ditt samtycke, förutom i följande situationer.",
+        "situations": [
+            "Vid laglig begäran.",
+            "Med tredje parter för att tillhandahålla tjänster."
+        ]
+    },
+    "your_rights": {
+        "description": "Du har följande rättigheter angående din information.",
+        "rights": [
+            "Rätt att begära tillgång till din information.",
+            "Rätt att få information rättad.",
+            "Rätt att begära att din information raderas."
+        ]
+    },
+    "changes_to_privacy_policy": {
+        "description": "Vi kan ändra denna policy när som helst. Ändringar träder i kraft när de publiceras."
+    },
+    "contact_information": {
+        "description": "För frågor om vår sekretesspolicy, kontakta oss.",
+        "email": "mrfelix880@gmail.com",
+        "address": "Alstavägen 7, 702 21 Örebro"
+    }
+}
