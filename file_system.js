@@ -1,161 +1,183 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const fileList = document.getElementById("fileList");
-    const documentTitle = document.getElementById("documentTitle");
-    const documentContent = document.getElementById("documentContent");
-    const yearElement = document.getElementById("year");
+class DocumentManager {
+    constructor({ fileListId, documentTitleId, documentContentId, yearElementId, documents, sectionsConfig, themeToggleId }) {
+        this.fileList = document.getElementById(fileListId);
+        this.documentTitle = document.getElementById(documentTitleId);
+        this.documentContent = document.getElementById(documentContentId);
+        this.yearElement = document.getElementById(yearElementId);
+        this.documents = documents;
+        this.sectionsConfig = sectionsConfig;
+        this.themeToggle = document.getElementById(themeToggleId);
+        this.savedScrollPosition = 0;
+        this.init();
+    }
 
-    // Uppdatera år i footern
-    yearElement.textContent = new Date().getFullYear();
+    init() {
+        this.updateYear();
+        this.sortDocuments();
+        this.renderDocumentList();
+        this.addThemeToggleListener();
+        this.loadDocumentFromLocalStorage();
+        this.autoRestoreScroll();
+    }
 
-    // Lista över dokument
-    const documents = [
-        {
-            title: "Användarvillkor",
-            file: "json/terms_of_use.json",
-            id: "terms"
-        },
-        {
-            title: "Sekretesspolicy",
-            file: "json/privacy_policy.json",
-            id: "privacy"
-        },
-        {
-            title: "Köpvillkor",
-            file: "json/purchase_conditions.json",
-            id: "purchase_conditions"
-        },
-        {
-            title: "Nedladdning Av Programvara", // Rättat stavfel här
-            file: "json/software_download.json", // Rättat filnamnet här
-            id: "download_software"
-        },
-        {
-            title: "Hantering av AI",
-            file: "json/ai_management.json",
-            id: "ai_management"
-        }
-    ];
+    // Sort documents alphabetically by title
+    sortDocuments() {
+        this.documents.sort((a, b) => a.title.localeCompare(b.title));
+    }
 
-    // Dynamiskt generera dokumentlistan
-    documents.forEach(doc => {
-        const docElement = document.createElement("p");
-        docElement.innerText = doc.title;
-        docElement.classList.add("document-link");
-        docElement.addEventListener("click", () => {
-            loadDocument(doc.file, doc.id, docElement);
+    // Update the current year in the footer
+    updateYear() {
+        this.yearElement.textContent = new Date().getFullYear();
+    }
+
+    // Render the list of documents in the sidebar
+    renderDocumentList() {
+        this.fileList.innerHTML = '';  // Clear existing list
+        this.documents.forEach(doc => {
+            const docElement = this.createElement('p', doc.title, ['document-link'], () => this.loadDocument(doc));
+            this.fileList.appendChild(docElement);
         });
-        fileList.appendChild(docElement);
-    });
-
-    // Funktion för att hämta och visa dokument och uppdatera URL
-    function loadDocument(file, docId, element) {
-        fetch(file)
-            .then(response => response.json())
-            .then(data => {
-                documentTitle.innerText = data.title;
-
-                // Uppdatera URL med dokumentets ID
-                const newUrl = `${window.location.origin}${window.location.pathname}?doc=${docId}`;
-                window.history.pushState({ path: newUrl }, '', newUrl);
-
-                // Ta bort "active"-klassen från alla dokumentlänkar
-                document.querySelectorAll(".documents p").forEach(p => p.classList.remove("active"));
-
-                // Lägg till "active"-klassen på det valda elementet
-                if (element) {
-                    element.classList.add("active");
-                }
-
-                // Bygg dokumentinnehållet (samma innehållshantering som tidigare)
-                let content = `
-                    <strong>Effektiv datum:</strong> ${data.effective_date || ''}<br>
-                    <strong>Företag:</strong> ${data.company || ''}<br>
-                    ${data.website ? `<strong>Webbplats:</strong> <a href="${data.website}" target="_blank">${data.website}</a><br>` : ''}
-                    ${data.introduction ? `<h2>Introduktion</h2><p>${data.introduction.description}</p>` : ''}
-                    ${data.information_collected ? `
-                        <h2>Insamlad information</h2>
-                        <p>${data.information_collected.description}</p>
-                        <ul>${data.information_collected.types.map(type => `<li>${type}</li>`).join('')}</ul>
-                    ` : ''}
-                    ${data.how_we_use_information ? `
-                        <h2>Hur vi använder information</h2>
-                        <p>${data.how_we_use_information.description}</p>
-                        <ul>${data.how_we_use_information.purposes.map(purpose => `<li>${purpose}</li>`).join('')}</ul>
-                    ` : ''}
-                    ${data.data_protection ? `
-                        <h2>Dataskydd</h2>
-                        <p>${data.data_protection.description}</p>
-                        <ul>${data.data_protection.measures.map(measure => `<li>${measure}</li>`).join('')}</ul>
-                    ` : ''}
-                    ${data.sharing_information ? `
-                        <h2>Delning av information</h2>
-                        <p>${data.sharing_information.description}</p>
-                        <ul>${data.sharing_information.situations.map(situation => `<li>${situation}</li>`).join('')}</ul>
-                    ` : ''}
-                    ${data.your_rights ? `
-                        <h2>Dina rättigheter</h2>
-                        <p>${data.your_rights.description}</p>
-                        <ul>${data.your_rights.rights.map(right => `<li>${right}</li>`).join('')}</ul>
-                    ` : ''}
-                    ${data.changes_to_privacy_policy ? `<h2>Ändringar i Sekretesspolicy</h2><p>${data.changes_to_privacy_policy.description}</p>` : ''}
-                    ${data.contact_information ? `
-                        <h2>Kontaktinformation</h2>
-                        <p>${data.contact_information.description}</p>
-                        <strong>Email:</strong> ${data.contact_information.email || ''}<br>
-                        <strong>Adress:</strong> ${data.contact_information.address || ''}<br>
-                    ` : ''}
-                    ${data.services ? `
-                        <h2>Tjänster</h2>
-                        <p>${data.services.description}</p>
-                        <p><strong>Tillgänglighet:</strong> ${data.services.availability}</p>
-                    ` : ''}
-                    ${data.website_usage ? `
-                        <h2>Användning av Webbplatsen</h2>
-                        <p>${data.website_usage.description}</p>
-                        <ul>${data.website_usage.prohibitions.map(prohibition => `<li>${prohibition}</li>`).join('')}</ul>
-                    ` : ''}
-                    ${data.user_generated_content ? `
-                        <h2>Användargenererat Innehåll</h2>
-                        <p>${data.user_generated_content.description}</p>
-                        <p>${data.user_generated_content.responsibility}</p>
-                    ` : ''}
-                    ${data.disclaimer ? `
-                        <h2>Ansvarsfriskrivning</h2>
-                        <p>${data.disclaimer.description}</p>
-                        <p>${data.disclaimer.efforts}</p>
-                    ` : ''}
-                    ${data.third_party_links ? `
-                        <h2>Tredjepartslänkar</h2>
-                        <p>${data.third_party_links.description}</p>
-                        <p>${data.third_party_links.advice}</p>
-                    ` : ''}
-                    ${data.privacy_policy ? `<h2>Integritetspolicy</h2><p>${data.privacy_policy.description}</p>` : ''}
-                    ${data.changes_to_terms ? `<h2>Ändringar i Villkor</h2><p>${data.changes_to_terms.description}</p>` : ''}
-                    ${data.governing_law ? `<h2>Gällande Lag</h2><p>${data.governing_law.description}</p>` : ''}
-                    ${data.limitation_of_liability ? `<h2>Begränsning av Ansvar</h2><p>${data.limitation_of_liability.description}</p>` : ''}
-                    ${data.contact_us ? `
-                        <h2>Kontakta oss</h2>
-                        <p>${data.contact_us.description}</p>
-                        <strong>Email:</strong> ${data.contact_us.email || ''}<br>
-                        <strong>Telefon:</strong> ${data.contact_us.phone || ''}<br>
-                        <strong>Adress:</strong> ${data.contact_us.address || ''}<br>
-                        <strong>Svarstid:</strong> ${data.contact_us.response_time || ''}<br>
-                    ` : ''}
-                `;
-
-                documentContent.innerHTML = content;
-            })
-            .catch(error => console.error('Error fetching JSON:', error));
     }
 
-    // Ladda dokument baserat på URL-parametern om det finns
-    const params = new URLSearchParams(window.location.search);
-    const docId = params.get('doc');
-    if (docId) {
-        const selectedDoc = documents.find(doc => doc.id === docId);
-        if (selectedDoc) {
-            const selectedElement = Array.from(document.querySelectorAll(".documents p")).find(p => p.innerText === selectedDoc.title);
-            loadDocument(selectedDoc.file, selectedDoc.id, selectedElement);
+    // Load the selected document and display its content
+    async loadDocument(doc) {
+        try {
+            this.savedScrollPosition = window.scrollY;  // Save scroll position
+            const data = await this.fetchDocument(doc.file);
+            this.documentTitle.innerText = data.title;
+            this.updateUrl(doc.id);
+            this.setActiveDocument(doc.title);
+            this.documentContent.innerHTML = this.buildContent(data);
+            window.scrollTo(0, 0);  // Reset scroll to top
+            localStorage.setItem('selectedDocumentId', doc.id);  // Store selected document in localStorage
+        } catch (error) {
+            console.error('Error fetching document:', error);
         }
     }
+
+    // Fetch document data from a JSON file
+    async fetchDocument(file) {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(`Failed to fetch ${file}`);
+        return response.json();
+    }
+
+    // Update the browser URL without reloading the page
+    updateUrl(docId) {
+        const newUrl = `${window.location.origin}${window.location.pathname}?doc=${docId}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+
+    // Highlight the active document in the sidebar
+    setActiveDocument(docTitle) {
+        [...this.fileList.children].forEach(p => p.classList.toggle('active', p.innerText === docTitle));
+    }
+
+    // Build content dynamically from JSON data
+    buildContent(data) {
+        return this.sectionsConfig.map(({ key, label, link }) => {
+            const sectionContent = this.createSection(data[key], label, link);
+            return sectionContent ? sectionContent : this.buildDynamicSections(data); // For any additional fields
+        }).join('');
+    }
+
+    // Create each section based on JSON structure
+    createSection(data, label, link = false) {
+        if (!data) return '';
+
+        let content = `<h2>${label}</h2><p>${data.description || ''}</p>`;
+        if (link && data.url) content += `<strong>Webbplats:</strong> <a href="${data.url}" target="_blank">${data.url}</a><br>`;
+
+        ['types', 'purposes'].forEach(key => {
+            if (data[key]) {
+                content += `<ul>${data[key].map(item => `<li>${item}</li>`).join('')}</ul>`;
+            }
+        });
+        return content;
+    }
+
+    // For any additional fields that aren't predefined in sectionsConfig
+    buildDynamicSections(data) {
+        const ignoredKeys = this.sectionsConfig.map(section => section.key);
+        return Object.keys(data).map(key => {
+            if (ignoredKeys.includes(key) || !data[key]) return ''; // Skip predefined keys
+            const label = key.replace(/_/g, ' ').toUpperCase(); // Convert key to a label
+            return this.createSection(data[key], label);
+        }).join('');
+    }
+
+    // Load selected document from localStorage after page reload
+    loadDocumentFromLocalStorage() {
+        const selectedDocId = localStorage.getItem('selectedDocumentId');
+        const docIdFromUrl = new URLSearchParams(window.location.search).get('doc');
+        const docId = docIdFromUrl || selectedDocId;
+
+        if (docId) {
+            const doc = this.documents.find(d => d.id === docId);
+            if (doc) {
+                this.loadDocument(doc);
+            }
+        }
+    }
+
+    // Helper function to create a DOM element
+    createElement(tag, text, classes = [], onClick = null) {
+        const element = document.createElement(tag);
+        element.innerText = text;
+        if (classes.length) element.classList.add(...classes);
+        if (onClick) element.addEventListener('click', onClick);
+        return element;
+    }
+
+    // Dark Mode Toggle
+    addThemeToggleListener() {
+        this.themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+        // Load saved theme
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    }
+
+    // Restore Scroll Position when Navigating Back to a Document
+    autoRestoreScroll() {
+        window.addEventListener('popstate', () => {
+            window.scrollTo(0, this.savedScrollPosition || 0);
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const config = {
+        fileListId: "fileList",
+        documentTitleId: "documentTitle",
+        documentContentId: "documentContent",
+        yearElementId: "currentYear",
+        themeToggleId: "themeToggle",
+        documents: [
+            { title: "Användarvillkor", file: "json/terms_of_use.json", id: "terms" },
+            { title: "Sekretesspolicy", file: "json/privacy_policy.json", id: "privacy" },
+            { title: "Köpvillkor", file: "json/purchase_conditions.json", id: "purchase" },
+            { title: "Nedladdning Av Programvara", file: "json/software_download.json", id: "download_software" },
+            { title: "Hantering av AI", file: "json/ai_management.json", id: "ai_management" }
+        ],
+        sectionsConfig: [
+            { key: 'effective_date', label: 'Effektiv datum' },
+            { key: 'company', label: 'Företag' },
+            { key: 'website', label: 'Webbplats', link: true },
+            { key: 'introduction', label: 'Introduktion' },
+            { key: 'information_collected', label: 'Insamlad information' },
+            { key: 'how_we_use_information', label: 'Hur vi använder information' },
+            { key: 'data_protection', label: 'Dataskydd' },
+            { key: 'sharing_information', label: 'Delning av information' },
+            { key: 'your_rights', label: 'Dina rättigheter' },
+            { key: 'changes_to_privacy_policy', label: 'Ändringar i Sekretesspolicy' },
+            { key: 'contact_information', label: 'Kontaktinformation' }
+        ]
+    };
+
+    new DocumentManager(config);
 });

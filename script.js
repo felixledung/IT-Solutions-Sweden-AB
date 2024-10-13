@@ -57,4 +57,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Set the current year in the copyright
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* Cookies */
+
+    // Kontrollerar om cookies har accepterats
+    if (localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-notice').style.display = 'none';
+    } else {
+        document.getElementById('cookie-notice').style.display = 'block'; // Visa cookie-notisen om den inte har accepterats
+    }
+
+    // Acceptera cookies
+    document.getElementById('accept-cookies').addEventListener('click', function () {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-notice').style.display = 'none';
+        alert('Tack för att du accepterar cookies!');
+    });
+
+    // Avvisa cookies
+    document.getElementById('decline-cookies').addEventListener('click', function () {
+        localStorage.setItem('cookiesAccepted', 'false'); // Spara avvisning av cookies
+        document.getElementById('cookie-notice').style.display = 'none';
+        alert('Du har avvisat cookies.');
+    });
+
+    // Öppna cookie-notisen när cookie-ikonen klickas
+    const cookieIcon = document.getElementById('cookie-icon');
+    if (cookieIcon) { // Kontrollera att elementet finns
+        cookieIcon.addEventListener('click', function (event) {
+            event.preventDefault(); // Förhindra att länken navigerar bort
+            document.getElementById('cookie-notice').style.display = 'block'; // Visa cookie-notisen
+        });
+    }
 });

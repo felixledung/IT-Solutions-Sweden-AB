@@ -45,6 +45,36 @@ body {
     width: 100%;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    max-width: 150px; /* Maxbredd för tooltip */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: left;
+    border-radius: 5px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 135%; /* Placera tooltipen precis till höger om ikonen */
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap; /* Förhindra att texten bryts på flera rader */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
 .documents {
     margin: 15px;
 }
@@ -63,7 +93,7 @@ body {
     border-radius: 16px;
 }
 
-.documents p.active{
+.documents p.active {
     background: #23c15b;
     color: #15191e;
     padding: 10px;
