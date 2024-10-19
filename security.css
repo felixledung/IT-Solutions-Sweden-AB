@@ -198,3 +198,71 @@ ul li {
     color: #f1f1f1;
     /* Listfärg */
 }
+
+.printFrame {
+    width: 550px;
+    min-height: 187px;
+    background: #15191e;
+    margin: 15px;
+    border: 3px solid #23c15b;
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 0 16px #000;
+    color: white;
+}
+
+.printFrame h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #23c15b;
+}
+
+.enter-printer {
+    position: relative;
+    margin-top: 20px;
+}
+
+#choosePrinter {
+    background-color: #191e24;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #1e242c;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #23c15b;
+}
+
+.caret {
+    margin-left: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}

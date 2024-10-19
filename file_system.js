@@ -181,3 +181,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     new DocumentManager(config);
 });
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();

@@ -108,6 +108,7 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     border-bottom: 1px solid #444;
+    position: relative;
 }
 
 .footer-section {
@@ -613,6 +614,103 @@ button:hover,
 .error-page img {
     width: 200px;
     margin-bottom: 20px;
+}
+
+/*cookie*/
+
+.cookie-banner {
+    background-color: #181818;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #0a84ff;
+    z-index: 1000;
+    display: none;
+}
+
+.cookie-banner p {
+    max-width: 70%;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.cookie-banner a {
+    color: #157feb;
+    text-decoration: underline;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    right: 60px;
+}
+
+.btn {
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+#close-btn {
+    background: transparent;
+    color: #000000;
+    font-weight: bold;
+    border: transparent;
+    position: fixed;
+    right: 15px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+#close-btn:hover{
+    scale: 1.1;
+    color: #fff;
+}
+
+.cookie-icon {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cookie-icon:hover {
+    color: #ffcc00;
 }
 
 /* styles for responsive design */
