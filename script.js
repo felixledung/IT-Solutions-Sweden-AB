@@ -90,3 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function(){
+    const cardImages = document.querySelectorAll(".employee .card .img");
+
+    cardImages.forEach(image => {
+        image.addEventListener("dragstart", function(event){
+            event.preventDefault();
+        });
+    });
+});

@@ -54,7 +54,7 @@
             <div class="service-card">
                 <h1>Title</h1>
                 <p>Service description</p>
-                <b>Pris: NaN</b>
+                <b>Pris: undefined</b>
                 <p class="last-updated"><b>Senast uppdaterad:</b>
                     <script>document.write(new Date().toLocaleDateString())</script>
                 </p>
@@ -63,7 +63,7 @@
             <div class="service-card">
                 <h1>Title</h1>
                 <p>Service description</p>
-                <b>Pris: NaN</b>
+                <b>Pris: undefined</b>
                 <p class="last-updated"><b>Senast uppdaterad:</b>
                     <script>document.write(new Date().toLocaleDateString())</script>
                 </p>
@@ -71,7 +71,7 @@
             <div class="service-card">
                 <h1>Title</h1>
                 <p>Service description</p>
-                <b>Pris: NaN</b>
+                <b>Pris: undefined</b>
                 <p class="last-updated"><b>Senast uppdaterad:</b>
                     <script>document.write(new Date().toLocaleDateString())</script>
                 </p>
@@ -80,20 +80,28 @@
     </section>
     <section class="review">
         <h1 id="title">Recensioner</h1>
-        <div class="inputs">
-            <input type="text" id="review-title" placeholder="Ange titeln på din recension...">
-            <textarea name="review" id="type-review" placeholder="Skriv din recension här..."></textarea>
-            <input type="button" id="btn" value="Send Review">
-        </div>
-        <div class="star-rateing-frame">
-            <h1>You not done yet. Please rate us with a star!</h1>
-            <p>By doing it, we will get your experience mutch better of the website.</p>
-            <div class="star">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+
+        <div class="ratingContainer">
+            <div class="star-widget">
+                <input type="radio" name="rate" id="rate-5">
+                <label for="rate-5" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-4">
+                <label for="rate-4" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-3">
+                <label for="rate-3" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-2">
+                <label for="rate-2" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-1">
+                <label for="rate-1" class="fas fa-star"></label>
+                <form action="#">
+                    <header>I'dont like it</header>
+                    <div class="textarea">
+                        <textarea cols="30" placeholder="Describe your experience..."></textarea>
+                    </div>
+                    <div class="rating-btn">
+                        <button type="submit">Post</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -107,19 +115,27 @@
             <a href="#" class="btn"><i class="fa-brands fa-linux"></i> Ladda ner för Linux</a>
         </div>
     </section>
+
     <section class="employee">
         <h1 id="title">Personal</h1>
-        <div class="card">
-            <img src="images/employee/FelixLedung.jpg" alt="Felix Ledung" style="width:100%">
-            <h1>Felix Ledung</h1>
-            <p class="title-card">Grundare, VD, Programmare mm.</p>
-            <p>IT Solutions Sweden AB</p>
-            <a href="#"><i class="fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <p><button onclick="sendEmail('mrfelix880@gmail.com')">Kontakt</button></p>
+        <div class="cards-container">
+            <div class="card">
+                <img src="images/employee/felixLedung.jpg" alt="Felix Ledung" style="width:100%">
+                <div class="specific-info">
+                    <h1 class="personalName">Felix Ledung</h1>
+                    <p class="title-card"><b>Befattning:</b> Grundare, VD, Programmare mm.</p>
+                    <p><b>Företag</b> IT Solutions Sweden AB</p>
+                    <p><button onclick="sendEmail('mrfelix880@gmail.com')">Kontakt</button></p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
         </div>
     </section>
+    
     <section class="contact">
         <h1 id="title">Kontakta oss</h1>
         <p>Har du några frågor? Tveka inte att höra av dig.</p>
@@ -177,8 +193,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; <span id="current-year"></span> IT Solutions Sweden AB. Alla rättigheter förbehållna.</p>
-            <p><a href="?doc=privacy">Sekretesspolicy</a> | <a
-                    href="documents.html?doc=terms">Användarvillkor</a></p>
+            <p><a href="?doc=privacy">Sekretesspolicy</a> | <a href="documents.html?doc=terms">Användarvillkor</a></p>
         </div>
     </footer>
 
@@ -201,6 +216,7 @@
     <script src="file_system.js"></script>
     <script src="script.js"></script>
     <script src="cookie.js"></script>
+    <script src="review.js"></script>
 </body>
 
 </html>

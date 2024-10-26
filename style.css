@@ -377,175 +377,150 @@ footer {
 
 /* Personal */
 
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-}
-
-.title-card {
-    color: grey;
-    font-size: 18px;
-}
-
-button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #171717;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.card a {
-    text-decoration: none;
-    font-size: 22px;
-    color: #222;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 15px;
+    background: #d3dce3;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 48%;
+    max-width: 825px;
 }
 
 .card img {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-button:hover,
-.card a:hover {
-    opacity: 0.7;
-}
-
-/* reviews */
-
-.reviews {
-    padding: 40px 20px;
-    background-color: #fff;
-}
-
-.reviews h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #1b81e0;
-}
-
-.reviews .review-card {
-    display: flex;
-    flex-direction: column;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    transition: transform 0.3s;
-}
-
-.reviews .review-card:hover {
-    transform: translateY(-5px);
-}
-
-.reviews .review-card p {
-    margin: 10px 0;
-    font-size: 0.9rem;
-}
-
-.reviews .review-card .reviewer {
-    font-weight: bold;
-}
-
-.review .inputs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.review input[type="text"] {
-    padding: 10px;
+    max-width: 250px;
+    max-height: 250px;
     border-radius: 16px;
-    border: 2px solid #0a84ff;
-    outline: none;
-    width: 512px;
+    margin-right: 20px;
 }
 
-.review textarea {
-    resize: none;
-    width: 512px;
-    border: 2px solid #0a84ff;
-    outline: none;
-    height: 256px;
-    border-radius: 16px;
+.card .specific-info button {
     padding: 10px;
-}
-
-.review input[type="button"] {
-    width: 512px;
-    padding: 10px;
-    font-weight: bold;
-    color: #ffff;
-    font-size: 18px;
-    background: #0a84ff;
+    margin: 0 0 25px;
+    width: 250px;
+    border-radius: 76px;
     border: none;
     outline: none;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: .5s ease;
-}
-
-.review input[type="button"]:hover {
-    scale: 1.02;
-    background: #157feb;
-    color: #f4f4f4f4;
-}
-
-/* employees */
-
-.employees {
-    padding: 40px 20px;
-    background-color: #fff;
-}
-
-.employees h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #1b81e0;
-}
-
-.employees .employee-card {
-    display: flex;
-    align-items: center;
-    background: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    transition: transform 0.3s;
-}
-
-.employees .employee-card:hover {
-    transform: translateY(-5px);
-}
-
-.employees .employee-card img {
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
-}
-
-.employees .employee-card .employee-name {
+    background: #0230012d;
     font-weight: bold;
-    font-size: 1.1rem;
+    color: #f2f2f2;
+    cursor: pointer;
 }
 
-.employees .employee-card .employee-role {
-    font-size: 0.9rem;
-    color: #555;
+.card .specific-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.card .social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.card .social-icons i {
+    color: #f4f4f4;
+    font-size: 22px;
+}
+
+/* Star rating */
+
+.ratingContainer{
+    width: 400px;
+    background: #111;
+    padding: 20px 30px;
+    border: 1px solid #444;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ratingContainer .star-widget input{
+    display: none;
+}
+
+.star-widget label{
+    font-size: 40px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+.star-widget input:not(:checked) ~ label:hover,
+.star-widget input:not(:checked) ~ label:hover ~ label{
+    color: #fd4;
+}
+
+.star-widget input:checked ~ label{
+    color: #fd4;
+}
+
+.star-widget input#rate-5:checked ~ label{
+    color: #fe7;
+    text-shadow: 0 0 20px #952;
+}
+
+.star-widget form header{
+    width: 100%;
+    font-size: 25px;
+    color: #fe7;
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.star-widget form .textarea{
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.star-widget .textarea textarea{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    background-origin: 1px solid #333;
+    background: #222;
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+.star-widget form .btn{
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.star-widget form .btn button{
+    height: 100%;
+    width: 100%;
+    border:  1 px solid #444;
+    outline: none;
+    background: #222;
+    color: #f9f9f9;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 /* download software */
@@ -601,6 +576,10 @@ button:hover,
     background-color: #f4a261;
 }
 
+.download-software a:hover{
+    color: #f4f4f4;
+}
+
 /* error */
 
 .error-page {
@@ -632,6 +611,7 @@ button:hover,
     color: #0a84ff;
     z-index: 1000;
     display: none;
+    text-align: left;
 }
 
 .cookie-banner p {
@@ -681,7 +661,7 @@ button:hover,
 
 #close-btn {
     background: transparent;
-    color: #000000;
+    color: #f4f4f4;
     font-weight: bold;
     border: transparent;
     position: fixed;
@@ -697,7 +677,7 @@ button:hover,
 
 #close-btn:hover{
     scale: 1.1;
-    color: #fff;
+    color: #cacaca8f;
 }
 
 .cookie-icon {
